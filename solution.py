@@ -1,9 +1,11 @@
 import numpy as np
 import sys
+import matplotlib.pyplot as plt
 from helper import *
 
 
 def show_images(data):
+    print("show_images")
     """Show the input images and save them.
 
     Args:
@@ -14,11 +16,17 @@ def show_images(data):
         Do not return any arguments. Save the plots to 'image_1.*' and 'image_2.*' and
         include them in your report
     """
-    ### YOUR CODE HERE
+    # YOUR CODE HERE
+    for i in range(data.shape[0]):
+        plt.figure(figzie=(4, 4))
+        plt.imshow(data[i], cmap='gray')
+        plt.axis('off')
+        plt.savefig(f"image_{i + 1}.png", bbox_inches='tight')
+        plt.close()
 
+    print("images saved")
 
-
-    ### END YOUR CODE
+    # END YOUR CODE
 
 
 def show_features(X, y, save=True):
@@ -33,15 +41,13 @@ def show_features(X, y, save=True):
         Do not return any arguments. Save the plot to 'train_features.*' and include it
         in your report.
     """
-    ### YOUR CODE HERE
+    # YOUR CODE HERE
 
-
-
-    ### END YOUR CODE
+    # END YOUR CODE
 
 
 class Perceptron(object):
-    
+
     def __init__(self, max_iter):
         self.max_iter = max_iter
 
@@ -55,14 +61,13 @@ class Perceptron(object):
         Returns:
             self: Returns an instance of self.
         """
-        ### YOUR CODE HERE
-        
+        # YOUR CODE HERE
 
         # After implementation, assign your weights w to self as below:
         # self.W = w
-        
-        ### END YOUR CODE
-        
+
+        # END YOUR CODE
+
         return self
 
     def get_params(self):
@@ -85,11 +90,9 @@ class Perceptron(object):
         Returns:
             preds: An array of shape [n_samples,]. Only contains 1 or -1.
         """
-        ### YOUR CODE HERE
+        # YOUR CODE HERE
 
-
-
-        ### END YOUR CODE
+        # END YOUR CODE
 
     def score(self, X, y):
         """Returns the mean accuracy on the given test data and labels.
@@ -101,13 +104,9 @@ class Perceptron(object):
         Returns:
             score: An float. Mean accuracy of self.predict(X) wrt. y.
         """
-        ### YOUR CODE HERE
+        # YOUR CODE HERE
 
-
-
-        ### END YOUR CODE
-
-
+        # END YOUR CODE
 
 
 def show_result(X, y, W):
@@ -123,12 +122,9 @@ def show_result(X, y, W):
         Do not return any arguments. Save the plot to 'result.*' and include it
         in your report.
     """
-    ### YOUR CODE HERE
+    # YOUR CODE HERE
 
-
-
-    ### END YOUR CODE
-
+    # END YOUR CODE
 
 
 def test_perceptron(max_iter, X_train, y_train, X_test, y_test):
