@@ -5,7 +5,6 @@ from helper import *
 
 
 def show_images(data):
-    print("show_images")
     """Show the input images and save them.
 
     Args:
@@ -18,7 +17,7 @@ def show_images(data):
     """
     # YOUR CODE HERE
     for i in range(data.shape[0]):
-        plt.figure(figzie=(4, 4))
+        plt.figure(figsize=(4, 4))
         plt.imshow(data[i], cmap='gray')
         plt.axis('off')
         plt.savefig(f"image_{i + 1}.png", bbox_inches='tight')
@@ -42,6 +41,13 @@ def show_features(X, y, save=True):
         in your report.
     """
     # YOUR CODE HERE
+    c1 = (y == 1)
+    c2 = (y == -1)
+    
+    plt.figure(figsize=(6, 6))
+    plt.scatter(X[class1, 0], X[class1, 1], color = 'blue', marker = 'o', label = "Class 1")
+    plt.show()
+    
 
     # END YOUR CODE
 

@@ -43,8 +43,6 @@ def visualize_result(X_train, y_train, X_test, y_test):
 
 
 if __name__ == '__main__':
-    print("something is working")
-
     traindataloc = "../data/train.txt"
     testdataloc = "../data/test.txt"
     data_train = load_data(traindataloc)
