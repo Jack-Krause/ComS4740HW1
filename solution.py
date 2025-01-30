@@ -45,7 +45,18 @@ def show_features(X, y, save=True):
     c2 = (y == -1)
     
     plt.figure(figsize=(6, 6))
-    plt.scatter(X[class1, 0], X[class1, 1], color = 'blue', marker = 'o', label = "Class 1")
+    plt.scatter(X[c1, 0], X[c1, 1], color = 'blue', marker = 'o', label = "Class 1")
+    plt.scatter(X[c2, 0], X[c2, 1], color = 'red', marker = 'x', label = "Class -1")
+    
+    plt.xlabel("Symmetry")
+    plt.ylabel("Intensity")
+    plt.legend()
+    plt.grid(True)
+    
+    if save:
+        plt.savefig("train_features.png", bbox_inches='tight')
+        
+        
     plt.show()
     
 
