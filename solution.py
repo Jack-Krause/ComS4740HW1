@@ -58,8 +58,6 @@ def show_features(X, y, save=True):
         
         
     plt.show()
-    
-
     # END YOUR CODE
 
 
@@ -163,7 +161,17 @@ def show_result(X, y, W):
         in your report.
     """
     # YOUR CODE HERE
+    show_features(X, y, save=False)
+    
+    x_values = np.linspace(min(X[:,0]), max(X[:,0]), 100)  # Generate x values
+    y_values = (- (W[0] / W[2]) - (W[1] / W[2]) * x_values)
+    
+    plt.plot(x_values, y_values, 'k--', label="Decision Boundary")
+    plt.legend()
+    
+    plt.savefig("result.png", bbox_inches='tight')
 
+    plt.show()
     # END YOUR CODE
 
 
