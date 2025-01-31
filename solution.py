@@ -71,6 +71,7 @@ class Perceptron(object):
 
     def fit(self, X, y):
         """Train perceptron model on data (X,y).
+        (Implement the Perceptron Learning Algorithm (PLA))
 
         Args:
             X: An array of shape [n_samples, n_features].
@@ -86,9 +87,9 @@ class Perceptron(object):
         
         for _ in range(self.max_iter):
             for i in range(X.shape[0]):
-                y_hat = np.sign(np.dot(w, X[i]))
+                y_pred = np.sign(np.dot(w, X[i]))
                 
-                if y_hat != y[i]:
+                if y_pred != y[i]:
                     w = w * y[i] * X[i]
                     
                     
@@ -118,6 +119,12 @@ class Perceptron(object):
             preds: An array of shape [n_samples,]. Only contains 1 or -1.
         """
         # YOUR CODE HERE
+        if self.W is None:
+            print("Error: Model has not been trained yet")
+            return None
+        
+        y_hat = np.sign(np.dot(X, self.W))
+        return y_hat
 
         # END YOUR CODE
 
@@ -132,6 +139,12 @@ class Perceptron(object):
             score: An float. Mean accuracy of self.predict(X) wrt. y.
         """
         # YOUR CODE HERE
+        y_pred = self.predict(X)
+        
+        correct_preds = (y_pred == y).sum()
+        accuracy = correct_preds / len(y)
+        
+        return accuracy
 
         # END YOUR CODE
 
