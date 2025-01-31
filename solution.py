@@ -90,9 +90,9 @@ class Perceptron(object):
                 y_pred = np.sign(np.dot(w, X[i]))
                 
                 if y_pred != y[i]:
-                    w = w * y[i] * X[i]
+                    w = w + y[i] * X[i]
                     
-                    
+             
         self.W = w
         # END YOUR CODE
 
@@ -108,6 +108,7 @@ class Perceptron(object):
             print("Run fit first!")
             sys.exit(-1)
         return self.W
+    
 
     def predict(self, X):
         """Predict class labels for samples in X.
@@ -141,11 +142,10 @@ class Perceptron(object):
         # YOUR CODE HERE
         y_pred = self.predict(X)
         
-        correct_preds = (y_pred == y).sum()
+        correct_preds = (y_pred == y).sum()        
         accuracy = correct_preds / len(y)
-        
-        return accuracy
 
+        return accuracy
         # END YOUR CODE
 
 
@@ -174,7 +174,7 @@ def test_perceptron(max_iter, X_train, y_train, X_test, y_test):
     model.fit(X_train, y_train)
     train_acc = model.score(X_train, y_train)
     W = model.get_params()
-
+    
     # test perceptron model
     test_acc = model.score(X_test, y_test)
 
