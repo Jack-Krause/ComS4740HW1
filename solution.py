@@ -81,8 +81,18 @@ class Perceptron(object):
         # YOUR CODE HERE
 
         # After implementation, assign your weights w to self as below:
-        # self.W = w
-
+        w = np.zeros(X.shape[1]) #initialize the w vector to 0's
+        
+        for _ in range(self.max_iter):
+            for i in range(X.shap[0]):
+                y_hat = np.sign(np.dot(w, X[i]))
+                
+                if y_hat != y[i]:
+                    w = w * y[i] * X[i]
+            
+            print(i)
+            
+        self.W = w
         # END YOUR CODE
 
         return self
